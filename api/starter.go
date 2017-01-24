@@ -30,6 +30,7 @@ func (api Api) Start() {
 		api.AddTimer(w, req)
 	}
 	router.HandleFunc("/timers", createTimer).Methods("POST")
+	log.Printf("Timio will listen on port %d", api.httpPort)
 	log.Fatal(http.ListenAndServe(":" + strconv.Itoa(api.httpPort), router))
 }
 

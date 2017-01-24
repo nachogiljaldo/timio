@@ -6,10 +6,11 @@ import (
 	"timio/config"
 	"os"
 	"log"
+	"timio/arguments"
 )
 
 func main() {
-	configFile := GetConfigFile(os.Args[1:])
+	configFile := arguments.GetConfigFile(os.Args[1:])
 	configuration, err := config.LoadConfiguration(configFile)
 	if (err != nil) {
 		log.Fatalf("Could not read configuration file %s", configFile)

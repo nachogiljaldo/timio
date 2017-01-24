@@ -12,7 +12,7 @@ import (
 func main() {
 	configFile := arguments.GetConfigFile(os.Args[1:])
 	configuration, err := config.LoadConfiguration(configFile)
-	if (err != nil) {
+	if err != nil {
 		log.Fatalf("Could not read configuration file %s", configFile)
 	}
 	persister := persistence.Persister{}

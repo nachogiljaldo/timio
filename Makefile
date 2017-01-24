@@ -6,7 +6,7 @@ deps:
 	go get -u github.com/kardianos/govendor
 	go get -u github.com/gorilla/mux
 	go get -u github.com/pborman/uuid
-	go get -u gopkg.in/yaml.v2
+	go get -u github.com/ghodss/yaml
 
 test:
 	echo "Running tests..."

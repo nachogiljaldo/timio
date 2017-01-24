@@ -4,11 +4,16 @@ import (
 	"timio/persistence"
 	"timio/api"
 	"timio/config"
+	"os"
+	"log"
 )
 
 func main() {
-	config := config.LoadConfiguration()
+	configFile := GetConfigFile(os.Args[1:])
+	configuration, err := config.LoadConfiguration(configFile)
+	if (err != nil) {
+		log.Fatalf("Could not read configuration file %s", configFile)
+	}
 	persister := persistence.Persister{}
-	api := api.Initialize(persister, config)
-	api.Start()
+	api.Initialize(persister, configuration).Start()
 }
